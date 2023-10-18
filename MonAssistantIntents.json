@@ -1,0 +1,13 @@
+{"intents": [
+  {"tag": "salutation",
+  "patterns": ["Salut", "ça va", "hello", "coucou", "Good day", "Whats up", "Hey", "greetings"],
+  "responses": ["Bonjour!", "Salut, \u00e7a fait plaisir de t'entendre a nouveau !", "Salut, que puis-je faire pour toi ?"],
+  "context_set": ""
+},
+{"tag": "search",
+"patterns": ["recherches", "recherches sur internet", "va chercher", "cherche sur google", "fait une recherche"],
+"responses": ["Je vais sur Duck Duck Go pour prot\u00e9ger tes donn\u00e9es priv\u00e9es. Attends ...", "OK go ..."],
+"context_set": ""
+}
+ ]
+  }
