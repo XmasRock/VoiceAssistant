@@ -8,6 +8,11 @@
 "patterns": ["recherches", "recherches sur internet", "va chercher", "cherche sur google", "fait une recherche"],
 "responses": ["Je vais sur Duck Duck Go pour prot\u00e9ger tes donn\u00e9es priv\u00e9es. Attends ...", "OK go ..."],
 "context_set": ""
+},
+{"tag": "horairesTrain",
+"patterns": ["horaire train", "recherches sur internet heure train", "prochain depart de train", "prochain train", "quelle heure pour le train"],
+"responses": [""],
+"context_set": ""
 }
  ]
   }

@@ -6,6 +6,7 @@ import speech_recognition as sr
 import pyttsx3 as tts
 from neuralintents import BasicAssistant
 from action.SearchInternet import SearchInternet
+from action.HorairesTrain import HorairesTrain
 
 # ====================
 # --- Class MonAssistant     
@@ -25,16 +26,17 @@ class MonAssistant:
         self.notListeningColor = "blue"
         self.say = ""
         self.source = None
-        self.activateSayHello = "Salut je suis "+ self.name + " ton assistante et je suis d'humeur à t'aider HA HA. Pose moi des questions."
+        self.activateSayHello = "Salut je suis "+ self.name + " ton assistante et je suis d'humeur à t'aider. HA! HA! Pose moi des questions."
         self.shutdownKeywords = "au revoir"
         self.shutdownSayGoodbye = "bon salut, je vais me coucher"
 
         #--- init actions
         self.actionSearch = SearchInternet(self)
-
+        self.actionHorairesTrain = HorairesTrain(self)
 
         self.assistant = BasicAssistant("MonAssistantIntents.json",method_mappings={
-            "search": self.actionSearch.process
+            "search": self.actionSearch.process,
+            "horairesTrain": self.actionHorairesTrain.process
         })
         self.r = sr.Recognizer()
         self.speaker = tts.init()
@@ -127,7 +129,8 @@ class MonAssistant:
                                 self.prRed("   >>> "+ response)
                                 if response is not None:
                                     self.tell(response)
-            except:
+            except Exception as error:
+                print(">>>> MonAssistant error: ", error)
                 self.label.config(fg=self.notListeningColor)
                 continue
 
